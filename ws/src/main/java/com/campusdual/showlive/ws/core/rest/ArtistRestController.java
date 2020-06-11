@@ -16,20 +16,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.campusdual.showlive.api.core.service.IConcertService;
+import com.campusdual.showlive.api.core.service.IArtistService;
 import com.ontimize.db.EntityResult;
 import com.ontimize.jee.server.rest.ORestController;
 
 @RestController
 @RequestMapping("/artists")
-@ComponentScan(basePackageClasses = { com.campusdual.showlive.api.core.service.IConcertService.class })
-public class ArtistRestController extends ORestController<IConcertService> {
+@ComponentScan(basePackageClasses = { com.campusdual.showlive.api.core.service.IArtistService.class })
+public class ArtistRestController extends ORestController<IArtistService> {
 
 	@Autowired
-	private IArtistService concertService;
+	private IArtistService artistService;
 
 	@Override
-	public IConcertService getService() {
+	public IArtistService getService() {
 		return this.artistService;
 	}
 
@@ -44,7 +44,7 @@ public class ArtistRestController extends ORestController<IConcertService> {
 		List<String> columns = (List<String>) req.get("columns");
 		Map<String, Object> key = new HashMap<String, Object>();
 
-		return artistService.concertQuery(keysValues, columns);
+		return artistService.artistQuery(keysValues, columns);
 
 	}
 }
