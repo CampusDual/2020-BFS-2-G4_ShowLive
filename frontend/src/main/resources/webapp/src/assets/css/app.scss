@@ -19,5 +19,5 @@
 @include o-material-theme($theme);
 
 // Propagate theme to screen styles definition.
-@import '../../app/app.theme.scss';
-@include home-theme($theme);
+@import '../../app/login/login.theme.scss';
+@include login-theme($theme);

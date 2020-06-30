@@ -21,7 +21,7 @@ ontimize:
             - DELETE
    jdbc:
       nameConvention: lower
-      sqlhandler: postgres
+      sqlhandler: postgresql
       sqlConditionProcessor:
          uppperString: true
          upperLike: true
@@ -64,7 +64,7 @@ spring:
       driver-class-name: org.postgresql.Driver
       jdbcUrl: jdbc:postgresql://45.84.210.174:65432/cd10
       username: cd10
-      password: cd10_P4$$!
+      password:	cd10_P4$$!
       initialSize: 10
       testOnBorrow: true
    main:
