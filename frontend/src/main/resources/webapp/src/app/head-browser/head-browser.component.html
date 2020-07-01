@@ -4,13 +4,13 @@
     </h1>
     <o-form editable-detail="no" show-header="no" layout-direction="column" layout-align="center center">
         <div fxLayout="row" layout-align="center center">
-            <o-daterange-input layout-padding attr="daterange2" label="{{ 'Diego veo que eres alto bobo' | oTranslate }}" read-only="no" required="yes" [data]="getValue()" (change)="change($event)" clear-button="yes" format="LL" separator=" to "> </o-daterange-input>
+            <o-daterange-input layout-padding attr="daterange2" label="{{ 'Fechas' | oTranslate }}" read-only="no" required="no" [data]="getValue()" (change)="change($event)" clear-button="yes" format="LL" separator=" to "> </o-daterange-input>
             <o-combo layout-padding attr="combo-editable-search" label="Ciudad" [static-data]="getDataArrayCiudades()" [data]="getValueSimple()" value-column="key" columns="key;value" visible-columns="value" required="yes" read-only="no" null-selection="no" searchable="yes">
             </o-combo>
-            <o-combo layout-padding attr="combo-editable-search" label="Ciudad" [static-data]="getDataArrayGeneros()" [data]="getValueSimple()" value-column="key" columns="key;value" visible-columns="value" required="yes" read-only="no" null-selection="no" searchable="yes">
+            <o-combo layout-padding attr="combo-editable-search" label="" [static-data]="getDataArrayGeneros()" [data]="getValueSimple()" value-column="key" columns="key;value" visible-columns="value" required="yes" read-only="no" null-selection="no" searchable="yes">
             </o-combo>
         </div>
-        <div fxLayout="row" layout-align="center center">
+        <div fxLayout="row" layout-align="centersad center">
             <o-text-input layout-padding attr="input2" label="Busqueda" read-only="no" required="no"></o-text-input>
             <o-button attr="icon" type="ICON" icon="search" layout-padding></o-button>
 
