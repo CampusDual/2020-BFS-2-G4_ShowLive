@@ -26,6 +26,7 @@
               "src/favicon.ico"
             ],
             "styles": [
+              "node_modules/font-awesome/css/font-awesome.css",
               "node_modules/ontimize-web-ngx/ontimize.scss",
               "src/assets/css/app.scss",
               "src/styles.scss"
