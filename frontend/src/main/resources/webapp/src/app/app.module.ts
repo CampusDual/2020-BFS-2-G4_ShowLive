@@ -10,6 +10,7 @@ import {
 import { CONFIG } from './app.config';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HeadBrowserComponent } from './head-browser/head-browser.component';
 
 // Standard providers...
 // Defining custom providers (if needed)...
@@ -23,7 +24,8 @@ export const customProviders: any = [
     AppRoutingModule
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    HeadBrowserComponent
   ],
   bootstrap: [
     AppComponent
