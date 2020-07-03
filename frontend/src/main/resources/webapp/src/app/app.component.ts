@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, Inject } from '@angular/core';
+import { OntimizeWebModule } from 'ontimize-web-ngx';
 
 @Component({
   selector: 'o-app',
