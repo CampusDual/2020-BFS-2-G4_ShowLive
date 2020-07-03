@@ -1,0 +1,18 @@
+.group-cards{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
+app-concert-card{
+  margin: 1%;
+  width: 45%;
+  display: flex;
+  flex-direction: row;
+}
+
+h1{
+  margin-left: 5%;
+  margin-top: 2%;
+}

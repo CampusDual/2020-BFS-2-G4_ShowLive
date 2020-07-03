@@ -11,6 +11,9 @@ import { CONFIG } from './app.config';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeadBrowserComponent } from './head-browser/head-browser.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { ConcertCardComponent } from './concert-card/concert-card.component';
+
 
 // Standard providers...
 // Defining custom providers (if needed)...
@@ -25,7 +28,9 @@ export const customProviders: any = [
   ],
   declarations: [
     AppComponent,
-    HeadBrowserComponent
+    HeadBrowserComponent,
+    SearchResultsComponent,
+    ConcertCardComponent
   ],
   bootstrap: [
     AppComponent
