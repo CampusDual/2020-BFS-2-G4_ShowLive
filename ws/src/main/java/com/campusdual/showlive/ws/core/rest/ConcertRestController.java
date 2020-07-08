@@ -55,4 +55,17 @@ public class ConcertRestController extends ORestController<IConcertService> {
 //		   res.setCode(EntityResult.OPERATION_WRONG);
 //		   return res;
 	}
+	
+	@RequestMapping(value = "/concerSearch", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public EntityResult concertSearch(@RequestBody Map<String, Object> req) {
+		final Map<String, Object> keysValues = new HashMap<String, Object>();
+		
+		((LinkedHashMap<String, Object>) req.get("filter")).entrySet().stream()
+		.forEach(filter -> keysValues.put(filter.getKey(), filter.getValue()));
+
+		List<String> columns = (List<String>) req.get("columns");
+		Map<String, Object> key = new HashMap<String, Object>();
+
+		return concertService.concertQuery(keysValues, columns);
+	}
 }
