@@ -12,6 +12,7 @@ import com.ontimize.jee.server.dao.jdbc.OntimizeJdbcDaoSupport;
 public class ConcertDao extends OntimizeJdbcDaoSupport {
 
  public static final String ATTR_CONCERT_ID = "CONCERT_ID";
+ public static final String ATTR_CONCERT_NAME = "CONCERT_NAME";
  public static final String ATTR_LOCATION_ID = "LOCATION_ID";
  public static final String ATTR_DATE = "DATE";
  public static final String ATTR_DURATION = "DURATION";
