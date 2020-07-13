@@ -1,0 +1,44 @@
+.contenido{
+    width: 100%;
+    text-align: center;
+    margin-top: 5%;
+  }
+
+  img{
+    width: 100%;
+  }
+
+  .imagen{
+    height: 60%;
+  }
+
+  @supports(object-fit: cover){
+    .imagen img{
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+
+  body {
+    background-color: #C8D3D5;
+  }
+
+  mat-card{
+    display: flex;
+    flex-flow: row wrap;
+    height: 400px;
+  }
+
+  mat-card-title{
+    margin-bottom: 1%;
+  }
+
+  mat-card-actions{
+    margin-bottom: 0px;
+  }
+
+  mat-card-content{
+    letter-spacing: 2px;
+  }
+

@@ -1,25 +1,36 @@
+.contenido {
+  margin-left: 5%;
+  width: 60%;
+}
 
-  .contenido{
-    margin-left: 5%;
-    width: 60%;
+.imagen img {
+  width: 250px;
+  margin: 2%;
+}
+
+@supports (object-fit: cover) {
+  .imagen img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
   }
-  
-  .imagen img{
-    width: 250px;
-    margin: 2%;
-  }
-  
-  h1{
-    margin-left: 5%;
-    margin-top: 2%;
-  }
-  
-  body {
-    background-color: #C8D3D5;
-  }
-  
-  mat-card{
-    display: flex;
-    flex-flow: row wrap;
-  }
-  
+}
+
+h1 {
+  margin-left: 5%;
+  margin-top: 2%;
+}
+
+body {
+  background-color: #c8d3d5;
+}
+
+mat-card {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+mat-card-actions {
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
