@@ -11,6 +11,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +24,7 @@ import com.ontimize.jee.server.rest.ORestController;
 @RestController
 @RequestMapping("/concerts")
 @ComponentScan(basePackageClasses = { com.campusdual.showlive.api.core.service.IConcertService.class })
+@CrossOrigin(origins = "http://localhost:4299")
 public class ConcertRestController extends ORestController<IConcertService> {
 
 	@Autowired
@@ -32,8 +34,8 @@ public class ConcertRestController extends ORestController<IConcertService> {
 	public IConcertService getService() {
 		return this.concertService;
 	}
-
-	@RequestMapping(value = "/currentConcerts", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	
+	@RequestMapping(value = "/currentConcerts", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public EntityResult currentConcertsSearch(@RequestBody Map<String, Object> req) {
 //	 try {
 		final Map<String, Object> keysValues = new HashMap<String, Object>();

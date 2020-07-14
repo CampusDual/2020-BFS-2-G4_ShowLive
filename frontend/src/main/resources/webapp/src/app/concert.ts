@@ -5,7 +5,6 @@ export interface Concert {
     date: Date;
 }
 
-
 export const CONCERTS = [
     {
         name: 'Riverland 2020',
