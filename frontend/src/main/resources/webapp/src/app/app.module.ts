@@ -13,8 +13,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeadBrowserComponent } from './head-browser/head-browser.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { ConcertCardComponent } from './concert-card/concert-card.component';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ConcertMiniCardComponent } from './concert-mini-card/concert-mini-card.component';
+import { IndexPageComponent } from './index-page/index-page.component';
+import { NguCarouselModule } from '@ngu/carousel';
 
 
 // Standard providers...
@@ -27,14 +29,16 @@ export const customProviders: any = [
     ONTIMIZE_MODULES,
     OntimizeWebModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule
+    NguCarouselModule
   ],
   declarations: [
     AppComponent,
     HeadBrowserComponent,
     SearchResultsComponent,
-    ConcertCardComponent
+    ConcertCardComponent,
+    ConcertMiniCardComponent,
+    IndexPageComponent
   ],
   bootstrap: [
     AppComponent

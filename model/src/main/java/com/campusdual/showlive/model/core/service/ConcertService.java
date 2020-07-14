@@ -7,9 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
-import com.ontimize.db.EntityResult;
 import com.campusdual.showlive.api.core.service.IConcertService;
 import com.campusdual.showlive.model.core.dao.ConcertDao;
+import com.ontimize.db.EntityResult;
+import com.ontimize.db.SQLStatementBuilder;
+import com.ontimize.db.SQLStatementBuilder.BasicExpression;
+import com.ontimize.db.SQLStatementBuilder.BasicField;
+import com.ontimize.db.SQLStatementBuilder.BasicOperator;
 import com.ontimize.jee.common.exceptions.OntimizeJEERuntimeException;
 import com.ontimize.jee.server.dao.DefaultOntimizeDaoHelper;
 
@@ -24,6 +28,18 @@ public class ConcertService implements IConcertService{
  public EntityResult concertQuery(Map<String, Object> keyMap, List<String> attrList)
    throws OntimizeJEERuntimeException {
   return this.daoHelper.query(this.concertDao, keyMap, attrList);
+ }
+ 
+ @Override
+ public EntityResult concertSearchQuery(Map<String, Object> keyMap, List<String> attrList) {
+	 final String concertName = new StringBuilder("%").append(((String)keyMap.remove("CONCERT_NAME")).replace(" ", "%")).append("%").toString();
+	 
+	 BasicField field = new BasicField("CONCERT_NAME");
+	 BasicExpression concertNameExp = new BasicExpression(field, BasicOperator.LIKE_OP, concertName);
+	 
+	 keyMap.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY,concertNameExp);
+	 
+	 return this.daoHelper.query(this.concertDao, keyMap, attrList, "concert_search");
  }
 
  @Override

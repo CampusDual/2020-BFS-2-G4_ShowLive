@@ -1,0 +1,93 @@
+.most-viewed, .last-added{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-bottom: 5%;
+    border: 1px solid #3c3c3a;
+    border-radius: 5px;
+    margin: 5%;
+    padding: 1%;
+  }
+
+  h2{
+    position: relative;
+    bottom: -110px;
+    margin-left: 10%;
+    background-color: #c8d3d5;
+    width: fit-content;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-weight: 300;
+  }
+
+  button,
+  button:active{
+    background-color: rgba(24, 24, 23, 0.5);
+    border: 0px;
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  ngu-carousel{
+    border: 1px solid #3c3c3a;
+    border-radius: 7px;
+    margin: 6%;
+    padding: 2%;
+  }
+
+  .item{
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .leftRs {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 70px;
+    height: 70px;
+    box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, 0.3);
+    border-radius: 999px;
+    left: 0;
+    margin-left: .5%;
+  }
+  
+  .rightRs {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    width: 70px;
+    height: 70px;
+    box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, 0.3);
+    border-radius: 999px;
+    right: 0;
+    margin-right: .5%;
+  }
+
+  app-concert-mini-card{
+    margin: 1%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  img{
+    width: 100%;
+  }
+
+  .imagen{
+    height: 60%;
+  }
+
+  @supports(object-fit: cover){
+    .imagen img{
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
