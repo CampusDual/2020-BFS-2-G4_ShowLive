@@ -5,23 +5,27 @@
     <img src="../../assets/images/ShowLive_x3.png">
     <o-form editable-detail="no" show-header="no" layout-direction="column" layout-align="center center">
         <div fxLayout="row" layout-align="center center">
-            <o-daterange-input layout-padding attr="daterange2" label="{{ 'Fechas' | oTranslate }}" read-only="no" required="no" [data]="getValue()" (change)="change($event)" clear-button="yes" format="LL" separator=" to "> </o-daterange-input>
+            <o-daterange-input layout-padding attr="daterange2" label="{{ 'Fechas' | oTranslate }}" id="date" #dateRangeInput read-only="no" required="no" [data]="getValue()" (change)="change($event)" clear-button="yes" format="LL" separator=" to ">
+            </o-daterange-input>
             <mat-form-field layout-padding>
-                <mat-select placeholder="Ciudad">
+                <mat-select placeholder="Ciudad" id="city" [(ngModel)]="search.city">
                     <mat-option>-</mat-option>
-                    <mat-option *ngFor="let ciudad of arrayCiudades" value="{{ciudad.key}}">{{ciudad.value}}</mat-option>
+                    <mat-option *ngFor="let ciudad of arrayCiudades" value="{{ciudad.value}}">{{ciudad.value}}</mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field layout-padding>
-                <mat-select placeholder="Genero">
+                <mat-select placeholder="Genero" id="genre" [(ngModel)]="search.genre">
                     <mat-option>-</mat-option>
-                    <mat-option *ngFor="let genero of arrayGeneros" value="{{genero.key}}">{{genero.value}}</mat-option>
+                    <mat-option *ngFor="let genero of arrayGeneros" value="{{genero.value}}">{{genero.value}}</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
         <div fxLayout="row" layout-align="centersad center">
-            <o-text-input layout-padding attr="input2" label="Busqueda" read-only="no" required="no"></o-text-input>
-            <o-button attr="icon" type="ICON" icon="search" layout-padding></o-button>
+            <mat-form-field layout-padding>
+                <input matInput type="text" label="Busqueda" required="no" id="name" [(ngModel)]="search.name">
+            </mat-form-field>
+
+            <button mat-icon-button type="submit" (click)="searchSubmit()"><mat-icon>search</mat-icon></button>
 
         </div>
     </o-form>

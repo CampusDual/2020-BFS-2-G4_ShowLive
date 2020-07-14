@@ -6,7 +6,7 @@ logging:
       root: info
 ontimize:
    corsfilter:
-      enabled: true
+      enabled: false
    globalcors:
       corsConfigurations:
          '[/**]':

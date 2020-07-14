@@ -13,6 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HeadBrowserComponent } from './head-browser/head-browser.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { ConcertCardComponent } from './concert-card/concert-card.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 // Standard providers...
@@ -24,7 +26,9 @@ export const customProviders: any = [
   imports: [
     ONTIMIZE_MODULES,
     OntimizeWebModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   declarations: [
     AppComponent,
