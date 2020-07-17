@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CONCERTS, Concert } from 'app/concert';
+import { Concert } from 'app/concert';
 import { ActivatedRoute } from '@angular/router';
+import { ConcertService } from 'app/concert.service';
 
 
 @Component({
@@ -8,13 +9,24 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss']
 })
-export class SearchResultsComponent {
+export class SearchResultsComponent implements OnInit{
   
   concerts:Concert[];
 
-  constructor(private route:ActivatedRoute) { 
-    this.route.params.subscribe(params => console.log(params));
-   }
+  constructor(private route:ActivatedRoute, private concertService:ConcertService) { }
 
+  ngOnInit(){
+    this.route.params.subscribe(data => {
+     this.concertService.getConcerts(data).subscribe(result =>{
+      this.concerts = result && result['data'] ? result['data'] : [];
+      console.log(this.concerts);
+     });
+    });
+      /*.subscribe((value) => {
+        console.log('Success',value.data)
+        this.concerts = value.data;
+        console.log(this.concerts)
+      }));*/
+  }
 }
 

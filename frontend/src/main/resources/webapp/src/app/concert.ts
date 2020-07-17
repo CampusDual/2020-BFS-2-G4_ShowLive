@@ -1,11 +1,11 @@
-export interface Concert {
-    name: String;
-    description: String;
-    imgPath: String;
-    date: String;
-    streamingPath: String;
+export class Concert {
+    constructor(
+        NAME: String,
+        DESCRIPTION: String,
+        CONCERT_NAME: String,
+        DATE: Date
+    ){}
 }
-
 export const CONCERTS = [
     {
         name: 'Riverland 2020',

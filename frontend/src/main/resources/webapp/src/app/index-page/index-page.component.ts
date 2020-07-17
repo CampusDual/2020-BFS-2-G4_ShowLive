@@ -29,9 +29,7 @@ export class IndexPageComponent implements OnInit {
   carouselItems = CONCERTS;
  
   constructor(private cdr: ChangeDetectorRef) {}
-  ngOnInit(): void {
-    throw new Error("Method not implemented.");
-  }
+  ngOnInit(){  }
  
   ngAfterViewInit() {
     this.cdr.detectChanges();

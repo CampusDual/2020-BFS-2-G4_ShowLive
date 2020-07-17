@@ -1,13 +1,9 @@
 import { Component, OnInit, Output, ViewChild } from '@angular/core';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { OntimizeWebModule } from 'ontimize-web-ngx';
-import { FormsModule } from '@angular/forms';
-import { Search } from './search';
-import { ConcertService } from '../concert.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CONCERTS, Concert } from 'app/concert';
-import { EventEmitter } from 'events';
-import { SearchResultsComponent } from 'app/search-results/search-results.component';
+import { Search } from './search';
+import { ConcertService } from 'app/concert.service';
+
+
 
 @Component({
   selector: 'app-head-browser',
@@ -24,9 +20,8 @@ export class HeadBrowserComponent implements OnInit {
   public selectedGenero;
 
   public concertName:string= "";
-  public search = new Search("",0,"","");
+  public search = new Search("",0,0,"-","-");
   
-  concerts:Concert[];
 
   constructor(private concertService:ConcertService, private route:ActivatedRoute,private router:Router) { 
   }
@@ -41,11 +36,9 @@ export class HeadBrowserComponent implements OnInit {
     return this.selectedGenero; 
   }
    
-searchSubmit(){
-    this.concerts = CONCERTS;
-    this.router.navigate(['search-results',this.concerts[0]])
-    this.concertService.getConcerts().subscribe(concert => console.log(concert));
-    console.log()
+searchSubmit(startDate){
+    this.router.navigate(['search-results',this.search.startDate,this.search.endDate,this.search.city,this.search.genre,this.search.name])
+    
   }
   public getDataArrayCiudades(): any[] { return this.arrayCiudades; } 
   public getDataArrayGeneros(): any[] { return this.arrayGeneros; } 
@@ -53,7 +46,5 @@ searchSubmit(){
 
   ngOnInit() {
   }
-
-
 }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Concert } from '../concert';
+import { Concert } from 'app/concert';
 
 @Component({
   selector: 'app-concert-card',
@@ -13,6 +13,7 @@ export class ConcertCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.concert)
   }
 
 }

@@ -1,4 +1,5 @@
-.most-viewed, .last-added{
+.most-viewed,
+.last-added {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -7,9 +8,9 @@
     border-radius: 5px;
     margin: 5%;
     padding: 1%;
-  }
+}
 
-  h2{
+h2 {
     position: relative;
     bottom: -110px;
     margin-left: 10%;
@@ -18,31 +19,31 @@
     padding-left: 2%;
     padding-right: 2%;
     font-weight: 300;
-  }
+}
 
-  button,
-  button:active{
+button,
+button:active {
     background-color: rgba(24, 24, 23, 0.5);
     border: 0px;
     color: white;
     text-align: center;
     font-size: 1.5em;
     outline: none;
-  }
+}
 
-  ngu-carousel{
+ngu-carousel {
     border: 1px solid #3c3c3a;
     border-radius: 7px;
     margin: 6%;
     padding: 2%;
-  }
+}
 
-  .item{
+.item {
     text-align: center;
     margin: 0 auto;
-  }
+}
 
-  .leftRs {
+.leftRs {
     position: absolute;
     margin: auto;
     top: 0;
@@ -53,9 +54,9 @@
     border-radius: 999px;
     left: 0;
     margin-left: .5%;
-  }
-  
-  .rightRs {
+}
+
+.rightRs {
     position: absolute;
     margin: auto;
     top: 0;
@@ -66,29 +67,29 @@
     border-radius: 999px;
     right: 0;
     margin-right: .5%;
-  }
+}
 
-  app-concert-mini-card{
+app-concert-mini-card {
     margin: 1%;
     width: 80%;
     display: flex;
     flex-direction: column;
     text-align: center;
     margin: 0 auto;
-  }
-  
-  img{
+}
+
+img {
     width: 100%;
-  }
+}
 
-  .imagen{
+.imagen {
     height: 60%;
-  }
+}
 
-  @supports(object-fit: cover){
-    .imagen img{
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
+@supports(object-fit: cover) {
+    .imagen img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
     }
-  }
+}

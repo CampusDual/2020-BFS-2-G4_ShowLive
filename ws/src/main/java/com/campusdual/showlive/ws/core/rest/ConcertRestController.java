@@ -58,7 +58,7 @@ public class ConcertRestController extends ORestController<IConcertService> {
 //		   return res;
 	}
 	
-	@RequestMapping(value = "/concertSearch", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/concertSearch", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public EntityResult concertSearch(@RequestBody Map<String, Object> req) {
 		final Map<String, Object> keysValues = new HashMap<String, Object>();
 

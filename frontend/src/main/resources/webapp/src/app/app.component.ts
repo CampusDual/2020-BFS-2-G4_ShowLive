@@ -1,7 +1,5 @@
-import { Component, OnInit, ViewChild, Inject } from '@angular/core';
-import { OntimizeWebModule } from 'ontimize-web-ngx';
-import { Concert } from './concert';
-import { SearchResultsComponent } from './search-results/search-results.component';
+import { Component, OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'o-app',
