@@ -17,16 +17,11 @@ export class SearchResultsComponent implements OnInit{
 
   ngOnInit(){
     this.route.params.subscribe(data => {
-     this.concertService.getConcerts(data).subscribe(result =>{
-      this.concerts = result && result['data'] ? result['data'] : [];
-      console.log(this.concerts);
-     });
+      this.concertService.getConcerts(data).subscribe(result =>{    
+        this.concerts = result && (result['data'].length != undefined) ? result['data'] : [];
+        console.log(this.concerts);
+      });
     });
-      /*.subscribe((value) => {
-        console.log('Success',value.data)
-        this.concerts = value.data;
-        console.log(this.concerts)
-      }));*/
   }
 }
 

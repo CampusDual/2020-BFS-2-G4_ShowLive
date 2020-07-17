@@ -24,6 +24,8 @@ export class ConcertService{
                 "LOCATION_NAME", "DATE", "DESCRIPTION", "CONCERT_NAME","CONCERT_ID","GENRE_NAME"
             ]
         };
+        if(parameters.startDate != 0) body.filter["STARTDATE"] = parameters.startDate;
+        if(parameters.endDate != 0) body.filter["ENDDATE"] = parameters.endDate;
         if(parameters.city != '-') body.filter["PROVINCE"] = parameters.city;
         if(parameters.genre != '-') body.filter["GENRE_NAME"] = parameters.genre;
         return this.http.post<Concert[]>(this.concertsURL,JSON.stringify(body),httpOptions);
