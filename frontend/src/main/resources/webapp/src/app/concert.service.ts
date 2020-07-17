@@ -1,26 +1,31 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { Concert } from "./concert";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Concert } from './concert';
+import { Config } from 'ontimize-web-ngx';
 
 @Injectable({providedIn:'root'})
 export class ConcertService{
 
     private concertsURL:string;
-    httpOptions = {headers:new HttpHeaders({"Authorization":"Basic "+ btoa("demo:demouser"),"Access-Control-Allow-Origin": "*","Access-Control-Allow-Methods":"POST"})}
+    
 
     constructor(private http:HttpClient){
-        this.concertsURL =  "http://localhost:33333/concerts/currentConcerts";
+        this.concertsURL =  'http://localhost:33333/concerts/concertSearch';
     }
-
-    getConcerts(): Observable<Concert[]>{
-        return this.http.post<Concert[]>(this.concertsURL,{
+    getConcerts(parameters){
+        const httpOptions = {headers:new HttpHeaders({'Access-Control-Allow-Origin': '*','Content-Type': 'application/json;charset=UTF-8'})};
+        console.log(parameters.name)
+        const body = {
             "filter": {
-                "CONCERT_ID": 5
+                "CONCERT_NAME": parameters.name,
             },
             "columns": [
-                "CONCERT_ID","DESCRIPTION"    
+                "LOCATION_NAME", "DATE", "DESCRIPTION", "CONCERT_NAME","CONCERT_ID","GENRE_NAME"
             ]
-        },this.httpOptions)
+        };
+        if(parameters.city != '-') body.filter["PROVINCE"] = parameters.city;
+        if(parameters.genre != '-') body.filter["GENRE_NAME"] = parameters.genre;
+        return this.http.post<Concert[]>(this.concertsURL,JSON.stringify(body),httpOptions);
     }
 }

@@ -16,6 +16,9 @@
  	<Query id="concert_search">
  		<AmbiguousColumns>
  			<AmbiguousColumn name="location_id" prefix="l"/>
+ 			<AmbiguousColumn name="concert_id" prefix="ac"/>
+ 			<AmbiguousColumn name="artist_id" prefix="ag"/>
+ 			<AmbiguousColumn name="genre_id" prefix="g"/>
  		</AmbiguousColumns>
  		<Sentence>
  			<![CDATA[
@@ -24,6 +27,10 @@
  				FROM
  					${mainschema}.CONCERT c
  				INNER JOIN ${mainschema}.LOCATION l ON c.location_id = l.location_id
+ 				INNER JOIN ${mainschema}.ARTIST_CONCERT ac ON c.concert_id = ac.concert_id
+ 				INNER JOIN ${mainschema}.ARTIST a ON ac.artist_id = a.artist_id
+ 				INNER JOIN ${mainschema}.ARTIST_GENRE ag ON a.artist_id = ag.artist_id
+ 				INNER JOIN ${mainschema}.GENRE g ON ag.genre_id = g.genre_id
  				#WHERE#
  			]]>
  		</Sentence>

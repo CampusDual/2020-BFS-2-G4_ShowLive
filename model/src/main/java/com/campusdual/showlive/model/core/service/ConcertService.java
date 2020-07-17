@@ -39,6 +39,15 @@ public class ConcertService implements IConcertService{
 	 
 	 keyMap.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY,concertNameExp);
 	 
+	 if(keyMap.containsKey("GENRE_NAME")) {
+		 final String genreName = ((String)keyMap.remove("GENRE_NAME")).toLowerCase();
+		 
+		 BasicField field2 = new BasicField("GENRE_NAME");
+		 BasicExpression genreNameExp = new BasicExpression(field2,BasicOperator.LIKE_OP,genreName);
+		 
+		 keyMap.put(SQLStatementBuilder.ExtendedSQLConditionValuesProcessor.EXPRESSION_KEY,genreNameExp);
+	 }	
+	 
 	 return this.daoHelper.query(this.concertDao, keyMap, attrList, "concert_search");
  }
 

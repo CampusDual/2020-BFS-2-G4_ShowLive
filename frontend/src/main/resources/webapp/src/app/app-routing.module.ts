@@ -5,7 +5,7 @@ import { IndexPageComponent } from './index-page/index-page.component';
 
 export const routes: Routes = [
   { path: 'index', component: IndexPageComponent },
-  { path: 'search-results/:date/:city/:genre/:name', component:SearchResultsComponent },
+  { path: 'search-results/:startDate/:endDate/:city/:genre/:name', component:SearchResultsComponent },
   { path: '', redirectTo: '/index', pathMatch: 'full'}  
 ];
 
