@@ -1,0 +1,54 @@
+.concert-detail {
+    width: 80%;
+    margin: 5%;
+    border: 1px solid #3c3c3a;
+}
+
+.concert-info {
+    display: flex;
+    margin: 5%;
+    justify-content: center;
+}
+
+.concert-detail img {
+    width: 40%;
+    margin: 2.5%;
+}
+
+@supports (object-fit: cover) {
+    .concert-detail img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+}
+
+.concert-details {
+    width: 35%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    margin: 2.5%;
+}
+
+.concert-detail .display-3 {
+    font-size: 3.5em;
+    margin-bottom: 0px;
+}
+
+.display-4{
+    font-size: 2em;
+    margin-bottom: 2%;
+}
+
+.concert-detail button{
+    width: 40%;
+}
+
+i {
+    margin-bottom: 1rem;
+}
+
+.comments {
+    margin: 5%;
+}

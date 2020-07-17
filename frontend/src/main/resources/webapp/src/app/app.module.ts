@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConcertMiniCardComponent } from './concert-mini-card/concert-mini-card.component';
 import { IndexPageComponent } from './index-page/index-page.component';
 import { NguCarouselModule } from '@ngu/carousel';
+import { ConcertDetailComponent } from './concert-detail/concert-detail.component';
+import { CommentsSectionComponent } from './concert-detail/comments-section/comments-section.component';
 
 
 // Standard providers...
@@ -29,7 +31,7 @@ export const customProviders: any = [
     ONTIMIZE_MODULES,
     OntimizeWebModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
     NguCarouselModule
   ],
   declarations: [
@@ -38,7 +40,9 @@ export const customProviders: any = [
     SearchResultsComponent,
     ConcertCardComponent,
     ConcertMiniCardComponent,
-    IndexPageComponent
+    IndexPageComponent,
+    ConcertDetailComponent,
+    CommentsSectionComponent
   ],
   bootstrap: [
     AppComponent

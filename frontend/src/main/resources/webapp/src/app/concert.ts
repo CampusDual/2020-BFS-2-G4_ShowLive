@@ -2,7 +2,8 @@ export interface Concert {
     name: String;
     description: String;
     imgPath: String;
-    date: Date;
+    date: String;
+    streamingPath: String;
 }
 
 export const CONCERTS = [
@@ -18,7 +19,8 @@ export const CONCERTS = [
         name: 'O Son do Camiño',
         description: 'El Festival O Son do Camiño se aplaza a 2021: será los días 17, 18 y 19 de junio en O Monte do Gozo, Santiago de Compostela',
         imgPath: 'https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F101055718%2F291672116228%2F1%2Foriginal.20200515-100816?w=800&auto=format%2Ccompress&q=75&sharp=10&rect=145%2C0%2C832%2C416&s=1f1417ccb53637e98bdeb667574ce9a9',
-        date: '27/08/2020-30/08/2020'
+        date: '27/08/2020-30/08/2020',
+        streamingPath: ''
     },
 
     {
