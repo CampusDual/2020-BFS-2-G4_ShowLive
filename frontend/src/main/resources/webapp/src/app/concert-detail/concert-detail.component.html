@@ -1,0 +1,21 @@
+<div class="concert-detail">
+  <div class="concert-info">
+    <img src={{concert.imgPath}}>
+    <div class="concert-details">
+      <h2 class="display-3">{{ concert.name }}</h2>
+      <!--<h4 class="display-4">{{artist.name}}</h4>-->
+      <h4 class="display-4">{{ concert.date }}</h4>
+      
+      <i class="fa fa-map-marker" aria-hidden="true"><!--{{location.name}}--></i>
+      <p>{{ concert.description }}</p>
+      <button class="tickets-button btn btn-warning">Comprar entradas</button>
+    </div>
+  </div>
+
+  <div class="comments">
+    <h1>Comentarios</h1>
+    <hr>
+    <!--AQUÍ INTRODUZCO EL COMPONENTE DE COMENTARIOS-->
+    <app-comments-section></app-comments-section>
+  </div>
+</div>
