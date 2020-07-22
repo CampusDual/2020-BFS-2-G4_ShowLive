@@ -110,7 +110,7 @@ public class ConcertService implements IConcertService {
   @Override
   public EntityResult mostViewConcertQuery(Map<String, Object> keyMap, List<String> attrList)
 		 throws OntimizeJEERuntimeException {	 
-	 return this.daoHelper.query(this.concertDao, keyMap, attrList, "concert_last");
+	 return this.daoHelper.query(this.concertDao, keyMap, attrList, "concert_mostview");
  }
 	@Override
 	public EntityResult concertUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap)

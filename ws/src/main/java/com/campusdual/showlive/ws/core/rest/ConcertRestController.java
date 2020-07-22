@@ -103,6 +103,6 @@ public class ConcertRestController extends ORestController<IConcertService> {
 		List<String> columns = (List<String>) req.get("columns");
 		Map<String, Object> key = new HashMap<String, Object>();
 
-		return concertService.lastConcertQuery(keysValues, columns);
+		return concertService.mostViewConcertQuery(keysValues, columns);
 	}
 }
