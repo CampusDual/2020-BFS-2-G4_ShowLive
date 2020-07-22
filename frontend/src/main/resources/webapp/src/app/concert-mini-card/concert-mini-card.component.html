@@ -1,10 +1,10 @@
 <mat-card>
   <div class="imagen">
-    <img src={{concert.imgPath}}>
+    <img src="../../assets/images/concerts/{{concert.CONCERT_ID}}.jpg">
   </div>
   <div class="contenido">
-    <mat-card-title>{{ concert.name }}</mat-card-title>
-    <mat-card-content>{{ concert.date }}</mat-card-content>
+    <mat-card-title>{{ concert.CONCERT_NAME }}</mat-card-title>
+    <mat-card-content>{{ concert.DATE | date }}</mat-card-content>
     <mat-card-actions>
       <button mat-button>Más información</button>
     </mat-card-actions>

@@ -1,6 +1,5 @@
-<app-concert-detail *ngFor="let concert of concerts" [concert]="concert"></app-concert-detail>
 <h2>Conciertos más buscados</h2>
-<ngu-carousel #masBuscados [inputs]="carouselConfig" [dataSource]="carouselItems">
+<ngu-carousel #masBuscados [inputs]="carouselConfig" [dataSource]="lastConcerts" *ngIf="lastConcerts">
   <div *nguCarouselDef="let item;" class="item">
     <app-concert-mini-card [concert]="item"></app-concert-mini-card>
   </div>
@@ -9,7 +8,7 @@
 </ngu-carousel>
 
 <h2>Recientemente añadido</h2>
-<ngu-carousel #recentAdds [inputs]="carouselConfig" [dataSource]="carouselItems">
+<ngu-carousel #recentAdds [inputs]="carouselConfig" [dataSource]="mostViewConcerts" *ngIf="mostViewConcerts">
   <div *nguCarouselDef="let item;" class="item">
     <app-concert-mini-card [concert]="item"></app-concert-mini-card>
   </div>

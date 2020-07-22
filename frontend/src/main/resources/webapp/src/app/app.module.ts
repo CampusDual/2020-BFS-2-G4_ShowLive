@@ -18,6 +18,7 @@ import { IndexPageComponent } from './index-page/index-page.component';
 import { NguCarouselModule } from '@ngu/carousel';
 import { ConcertDetailComponent } from './concert-detail/concert-detail.component';
 import { CommentsSectionComponent } from './concert-detail/comments-section/comments-section.component';
+import { HttpClientModule } from "@angular/common/http";
 
 
 // Standard providers...
