@@ -1,4 +1,3 @@
-<app-concert-detail *ngFor="let concert of concerts" [concert]="concert"></app-concert-detail>
 <h2>Conciertos más buscados</h2>
 <ngu-carousel #masBuscados [inputs]="carouselConfig" [dataSource]="carouselItems">
   <div *nguCarouselDef="let item;" class="item">

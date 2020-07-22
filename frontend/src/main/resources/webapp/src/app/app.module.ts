@@ -18,7 +18,8 @@ import { IndexPageComponent } from './index-page/index-page.component';
 import { NguCarouselModule } from '@ngu/carousel';
 import { ConcertDetailComponent } from './concert-detail/concert-detail.component';
 import { CommentsSectionComponent } from './concert-detail/comments-section/comments-section.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { CommentItemComponent } from './concert-detail/comments-section/comment-item/comment-item.component';
 
 // Standard providers...
 // Defining custom providers (if needed)...
@@ -41,7 +42,8 @@ export const customProviders: any = [
     ConcertMiniCardComponent,
     IndexPageComponent,
     ConcertDetailComponent,
-    CommentsSectionComponent
+    CommentsSectionComponent,
+    CommentItemComponent
   ],
   bootstrap: [
     AppComponent

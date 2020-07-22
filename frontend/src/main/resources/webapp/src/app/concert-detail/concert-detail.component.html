@@ -1,21 +1,21 @@
 <div class="concert-detail">
-  <div class="concert-info">
-    <img src={{concert.imgPath}}>
+  <div class="concert-info" *ngIf="concerts">
+    <img src="../../assets/images/concerts/{{concerts.CONCERT_ID}}.jpg">
     <div class="concert-details">
-      <h2 class="display-3">{{ concert.name }}</h2>
-      <!--<h4 class="display-4">{{artist.name}}</h4>-->
-      <h4 class="display-4">{{ concert.date }}</h4>
-      
-      <i class="fa fa-map-marker" aria-hidden="true"><!--{{location.name}}--></i>
-      <p>{{ concert.description }}</p>
-      <button class="tickets-button btn btn-warning">Comprar entradas</button>
+      <h2 class="display-3">{{ concerts.CONCERT_NAME }}</h2>
+      <h4 class="display-4">{{ concerts.ARTIST_NAME }}</h4>
+      <h4 class="display-4">{{ concerts.DATE | date }}</h4>
+
+      <i class="fa fa-map-marker" aria-hidden="true"> {{concerts.LOCATION_NAME}}</i>
+      <p>{{ concerts.DESCRIPTION }}</p>
+      <a href="{{concerts.TICKETEA_LINK}}" target="_blank"><button class="tickets-button btn btn-warning">Comprar
+          entradas</button></a>
     </div>
   </div>
 
   <div class="comments">
     <h1>Comentarios</h1>
     <hr>
-    <!--AQUÍ INTRODUZCO EL COMPONENTE DE COMENTARIOS-->
     <app-comments-section></app-comments-section>
   </div>
 </div>

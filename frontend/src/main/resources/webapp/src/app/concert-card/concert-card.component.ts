@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Concert } from 'app/concert';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-concert-card',
@@ -10,7 +11,7 @@ export class ConcertCardComponent implements OnInit {
 
   @Input() concert: Concert;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
     console.log(this.concert)

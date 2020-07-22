@@ -6,7 +6,7 @@
     <mat-card-title>{{ concert.name }}</mat-card-title>
     <mat-card-content>{{ concert.date }}</mat-card-content>
     <mat-card-actions>
-      <button mat-button>Más información</button>
+      <button [routerLink]="['/concertDetail', concert.concert_id]" mat-button>Más información</button>
     </mat-card-actions>
   </div>
 </mat-card>

@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import com.campusdual.showlive.api.core.service.IConcertService;
+
 import com.campusdual.showlive.model.core.dao.ConcertDao;
 import com.ontimize.db.EntityResult;
 import com.ontimize.db.SQLStatementBuilder;
@@ -33,9 +34,16 @@ public class ConcertService implements IConcertService {
 	@Override
 	public EntityResult concertQuery(Map<String, Object> keyMap, List<String> attrList)
 			throws OntimizeJEERuntimeException {
-		return this.daoHelper.query(this.concertDao, keyMap, attrList);
+		
+		if (keyMap.containsKey("CONCERT_ID")) {
+			final int concertId = Integer.parseInt((String)keyMap.get("CONCERT_ID"));
+			keyMap.put("CONCERT_ID", concertId);
+		}
+		
+		return this.daoHelper.query(this.concertDao, keyMap, attrList, "concert_search");
 	}
-
+	
+	
 	@Override
 	public EntityResult concertSearchQuery(Map<String, Object> keyMap, List<String> attrList) {
 		final String concertName = new StringBuilder("%").append(((String) keyMap.remove("CONCERT_NAME")).replace(" ", "%")).append("%").toString();
@@ -100,5 +108,6 @@ public class ConcertService implements IConcertService {
 	public EntityResult concertDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
 		return this.daoHelper.delete(this.concertDao, keyMap);
 	}
+
 
 }

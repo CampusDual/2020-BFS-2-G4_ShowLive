@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Comment } from 'app/concertComment';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CommentService } from 'app/comment.service';
 
 @Component({
   selector: 'app-comments-section',
@@ -7,13 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentsSectionComponent implements OnInit {
 
-  constructor() { }
+  comments: Comment[];
 
-  ngOnInit() {
-  }
+  constructor(private route: ActivatedRoute, private commentService: CommentService) { }
 
   getValue() {
-    return '';
+
   }
 
+  commentSubmit() {
+    this.route.params.subscribe();
+  }
+
+  ngOnInit() {
+    this.route.params.subscribe(data => {
+      this.commentService.getComments(data).subscribe((result) => {
+        this.comments = result && (result['data']) && (result['data'].length > 0) ? result['data'] : [];
+      });
+    });
+  }
 }
