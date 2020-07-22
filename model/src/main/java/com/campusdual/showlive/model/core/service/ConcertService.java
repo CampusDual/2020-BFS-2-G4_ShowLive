@@ -39,6 +39,10 @@ public class ConcertService implements IConcertService {
 			final int concertId = Integer.parseInt((String)keyMap.get("CONCERT_ID"));
 			keyMap.put("CONCERT_ID", concertId);
 		}
+		if (keyMap.containsKey("ARTIST_ID")) {
+			final int artistId = Integer.parseInt((String)keyMap.get("ARTIST_ID"));
+			keyMap.put("ARTIST_ID", artistId);
+		}
 		
 		return this.daoHelper.query(this.concertDao, keyMap, attrList, "concert_search");
 	}
@@ -97,15 +101,14 @@ public class ConcertService implements IConcertService {
 	public EntityResult concertInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException {
 		return this.daoHelper.insert(this.concertDao, attrMap);
 	}
-
- @Override
- public EntityResult lastConcertQuery(Map<String, Object> keyMap, List<String> attrList)
+  @Override
+  public EntityResult lastConcertQuery(Map<String, Object> keyMap, List<String> attrList)
 		 throws OntimizeJEERuntimeException {	 
 	 return this.daoHelper.query(this.concertDao, keyMap, attrList, "concert_last");
  }
  
- @Override
- public EntityResult mostViewConcertQuery(Map<String, Object> keyMap, List<String> attrList)
+  @Override
+  public EntityResult mostViewConcertQuery(Map<String, Object> keyMap, List<String> attrList)
 		 throws OntimizeJEERuntimeException {	 
 	 return this.daoHelper.query(this.concertDao, keyMap, attrList, "concert_last");
  }
@@ -119,6 +122,4 @@ public class ConcertService implements IConcertService {
 	public EntityResult concertDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException {
 		return this.daoHelper.delete(this.concertDao, keyMap);
 	}
-
-
 }

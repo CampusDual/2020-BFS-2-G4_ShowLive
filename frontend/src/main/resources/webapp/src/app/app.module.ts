@@ -20,6 +20,7 @@ import { ConcertDetailComponent } from './concert-detail/concert-detail.componen
 import { CommentsSectionComponent } from './concert-detail/comments-section/comments-section.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommentItemComponent } from './concert-detail/comments-section/comment-item/comment-item.component';
+import { ArtistDetailComponent } from './artist-detail/artist-detail.component';
 
 // Standard providers...
 // Defining custom providers (if needed)...
@@ -43,7 +44,8 @@ export const customProviders: any = [
     IndexPageComponent,
     ConcertDetailComponent,
     CommentsSectionComponent,
-    CommentItemComponent
+    CommentItemComponent,
+    ArtistDetailComponent
   ],
   bootstrap: [
     AppComponent
