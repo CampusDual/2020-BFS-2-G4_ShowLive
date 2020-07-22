@@ -17,22 +17,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.campusdual.showlive.api.core.service.IConcertService;
+import com.campusdual.showlive.api.core.service.ICommentService;
 import com.ontimize.db.EntityResult;
 import com.ontimize.jee.server.rest.ORestController;
 
 @RestController
-@RequestMapping("/concerts")
-@ComponentScan(basePackageClasses = { com.campusdual.showlive.api.core.service.IConcertService.class })
+@RequestMapping("/comments")
+@ComponentScan(basePackageClasses = { com.campusdual.showlive.api.core.service.ICommentService.class })
 @CrossOrigin(origins = "http://localhost:4299")
-public class ConcertRestController extends ORestController<IConcertService> {
+public class CommentRestController extends ORestController<ICommentService> {
 
 	@Autowired
-	private IConcertService concertService;
+	private ICommentService commentService;
 
 	@Override
-	public IConcertService getService() {
-		return this.concertService;
+	public ICommentService getService() {
+		return this.commentService;
 	}
 	
 	@RequestMapping(value = "/currentConcerts", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -46,7 +46,7 @@ public class ConcertRestController extends ORestController<IConcertService> {
 		List<String> columns = (List<String>) req.get("columns");
 		Map<String, Object> key = new HashMap<String, Object>();
 
-		return concertService.concertQuery(keysValues, columns);
+		return commentService.commentQuery(keysValues, columns);
 
 	}
 	
@@ -64,19 +64,5 @@ public class ConcertRestController extends ORestController<IConcertService> {
 //		return concertService.commentsQuery(keysValues, columns);
 //
 //	}
-	
-	@RequestMapping(value = "/concertSearch", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-	public EntityResult concertSearch(@RequestBody Map<String, Object> req) {
-		Map<String, Object> keysValues = (Map<String, Object>) req.get("filter");
-		
-		if (keysValues.containsKey("CONCERT_ID")) {
-			final int concertId = Integer.parseInt((String)keysValues.get("CONCERT_ID"));
-			keysValues.put("CONCERT_ID", concertId);
-		}
 
-		List<String> columns = (List<String>) req.get("columns");
-		Map<String, Object> key = new HashMap<String, Object>();
-
-		return concertService.concertSearchQuery(keysValues, columns);
-	}
 }

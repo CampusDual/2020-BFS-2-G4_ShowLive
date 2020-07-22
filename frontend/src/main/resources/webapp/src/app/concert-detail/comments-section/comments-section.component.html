@@ -1,21 +1,19 @@
 <div class="coments-form">
-
-  <o-form editable-detail="no" show-header="no" layout-direction="column">
-    <o-text-input attr="input2" class="input-name" label="Nombre" [data]="getValue()" read-only="no" required="yes">
+  <o-form service="CommentService" entity="commentInsert" keys="COMMENT_ID" columns="COMMENT_ID;NAME_COMMENT;DATE_COMMENT;CONTENT" editable-detail="no" show-header="no"
+    layout-direction="column">
+    <o-text-input attr="NAME_COMMENT" class="input-name" label="Nombre" [data]="getValue('NAME_COMMENT')" read-only="no"
+      required="yes">
     </o-text-input>
     <span class="comentar">
-      <o-textarea-input attr="textarea2" class="textarea-comment" label="Comentario" [data]="getValue()" read-only="no"
+      <o-textarea-input attr="CONTENT" class="textarea-comment" label="Comentario" [data]="getValue('CONTENT')" read-only="no"
         rows="5"></o-textarea-input>
-      <o-button attr="raised" class="comment-button" type="RAISED" label="Comentar" layout-padding></o-button>
+      <o-button attr="raised" class="comment-button" type="RAISED" label="Comentar" layout-padding
+        (click)="commentSubmit()"></o-button>
     </span>
   </o-form>
-
 </div>
 
+
 <div class="comments-list">
-  <div class="comment-item">
-    <p class="h5">Mari Carmen</p>
-    <p>25/12/2020</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fermentum lacinia dui a ultricies. Nullam a massa nec orci bibendum eleifend. Praesent lacinia, turpis quis lacinia scelerisque, ex turpis pretium elit, non vulputate ipsum lectus quis ipsum. Nam rhoncus venenatis leo vel egestas. Nullam commodo ut neque id pretium. Nulla at odio at dui aliquam lobortis eget a lacus. Maecenas augue neque, suscipit id accumsan sit amet, dapibus consectetur urna. Aliquam semper imperdiet urna. Integer vel scelerisque nunc. Vestibulum sem purus, vulputate eu elementum at, porta eu enim. Aenean tristique, magna nec blandit auctor, eros sapien sagittis diam, sit amet mollis ante arcu fringilla diam. </p>
-  </div>
+  <app-comment-item *ngFor="let comment of comments" [comment]="comment"></app-comment-item>
 </div>
