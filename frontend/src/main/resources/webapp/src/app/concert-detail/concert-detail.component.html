@@ -10,8 +10,11 @@
 
             <i class="fa fa-map-marker" aria-hidden="true"> {{concerts.LOCATION_NAME}}</i>
             <p>{{ concerts.DESCRIPTION }}</p>
-            <a href="{{concerts.TICKETEA_LINK}}" [class.request-card-hidden]="hideElement()" target="_blank"><button class="tickets-button btn btn-warning">Comprar
+            <a href="{{concerts.TICKETEA_LINK}}" [class.request-card-hidden]="hideTicketea()" target="_blank"><button class="tickets-button btn btn-warning">Comprar
           entradas</button></a>
+            <a *ngIf="concerts.TWITCH_LINK" href="{{concerts.TWITCH_LINK}}" [class.request-card-hidden]="hideStreaming()" target="_blank"><button class="tickets-button btn" style="font-weight:bold;color:white;background-color:#772ce8">Twitch</button></a>
+            <br>
+            <a *ngIf="concerts.YOUTUBE_LINK" href="{{concerts.YOUTUBE_LINK}}" [class.request-card-hidden]="hideStreaming()" target="_blank"><button class="tickets-button btn" style="font-weight:bold;color:white;background-color:red">YouTube</button></a>
         </div>
     </div>
 

@@ -23,8 +23,12 @@ export class ConcertDetailComponent implements OnInit {
     });
   }
 
-  hideElement():boolean{
+  hideTicketea():boolean{
     if (this.concerts['TICKETEA_LINK']==null)
         return true;
-}
+  }
+  hideStreaming():boolean{
+    if (this.concerts['IS_STREAMING']==false)
+      return true;
+  }
 }

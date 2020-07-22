@@ -37,7 +37,7 @@ export class ConcertService {
                 "CONCERT_ID": parameters.concert_id
             },
             "columns": [
-                "LOCATION_NAME", "DATE", "DESCRIPTION", "CONCERT_NAME", "CONCERT_ID", "ARTIST_NAME", "TICKETEA_LINK","ARTIST_ID"
+                "LOCATION_NAME", "DATE", "DESCRIPTION", "CONCERT_NAME", "CONCERT_ID", "ARTIST_NAME", "TICKETEA_LINK","ARTIST_ID","IS_STREAMING","TWITCH_LINK","YOUTUBE_LINK"
             ]
         };
         return this.http.post<Concert[]>('http://localhost:33333/concerts/concert/search', JSON.stringify(body), httpOptions);
