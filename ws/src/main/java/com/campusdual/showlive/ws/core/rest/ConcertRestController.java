@@ -79,4 +79,30 @@ public class ConcertRestController extends ORestController<IConcertService> {
 
 		return concertService.concertSearchQuery(keysValues, columns);
 	}
+	
+	@RequestMapping(value = "/lastConcert", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public EntityResult lastConcert(@RequestBody Map<String, Object> req) {
+		final Map<String, Object> keysValues = new HashMap<String, Object>();
+
+		((LinkedHashMap<String, Object>) req.get("filter")).entrySet().stream()
+		.forEach(filter -> keysValues.put(filter.getKey(), filter.getValue()));
+
+		List<String> columns = (List<String>) req.get("columns");
+		Map<String, Object> key = new HashMap<String, Object>();
+
+		return concertService.lastConcertQuery(keysValues, columns);
+	}
+	
+	@RequestMapping(value = "/mostViewConcert", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	public EntityResult mostViewConcert(@RequestBody Map<String, Object> req) {
+		final Map<String, Object> keysValues = new HashMap<String, Object>();
+
+		((LinkedHashMap<String, Object>) req.get("filter")).entrySet().stream()
+		.forEach(filter -> keysValues.put(filter.getKey(), filter.getValue()));
+
+		List<String> columns = (List<String>) req.get("columns");
+		Map<String, Object> key = new HashMap<String, Object>();
+
+		return concertService.lastConcertQuery(keysValues, columns);
+	}
 }

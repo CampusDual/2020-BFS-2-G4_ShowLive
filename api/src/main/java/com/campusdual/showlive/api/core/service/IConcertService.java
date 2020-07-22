@@ -14,5 +14,7 @@ public interface IConcertService {
  public EntityResult concertUpdate(Map<String, Object> attrMap, Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
  public EntityResult concertDelete(Map<String, Object> keyMap) throws OntimizeJEERuntimeException;
  public EntityResult concertSearchQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+ public EntityResult lastConcertQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
+ public EntityResult mostViewConcertQuery(Map<String, Object> keyMap, List<String> attrList) throws OntimizeJEERuntimeException;
 
 }

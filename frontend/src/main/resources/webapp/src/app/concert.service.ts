@@ -10,6 +10,7 @@ export class ConcertService {
     constructor(private http: HttpClient) {
         this.concertsURL = 'http://localhost:33333/concerts/concertSearch';
     }
+
     getConcerts(parameters) {
         const httpOptions = { headers: new HttpHeaders({ 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json;charset=UTF-8' }) };
         console.log(parameters.name)
@@ -41,5 +42,26 @@ export class ConcertService {
             ]
         };
         return this.http.post<Concert[]>('http://localhost:33333/concerts/concert/search', JSON.stringify(body), httpOptions);
+    }
+    getLastConcerts(){
+        const httpOptions = {headers:new HttpHeaders({'Access-Control-Allow-Origin': '*','Content-Type': 'application/json;charset=UTF-8'})};
+        const body = {
+            "filter": {},
+            "columns": [
+                "DATE", "DESCRIPTION", "CONCERT_NAME","CONCERT_ID","GENRE_NAME"
+            ]
+        };
+        return this.http.post<Concert[]>('http://localhost:33333/concerts/lastConcert',JSON.stringify(body),httpOptions);
+    }
+
+    getMostViewConcerts(){
+        const httpOptions = {headers:new HttpHeaders({'Access-Control-Allow-Origin': '*','Content-Type': 'application/json;charset=UTF-8'})};
+        const body = {
+            "filter": {},
+            "columns": [
+                "DATE", "DESCRIPTION", "CONCERT_NAME","CONCERT_ID","GENRE_NAME"
+            ]
+        };
+        return this.http.post<Concert[]>('http://localhost:33333/concerts/mostViewConcert',JSON.stringify(body),httpOptions);
     }
 }
