@@ -1,7 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { CONCERTS } from 'app/concert';
+import {Concert, CONCERTS} from 'app/concert';
 
 import { NguCarouselConfig, NguCarousel } from '@ngu/carousel';
+import {ActivatedRoute} from "@angular/router";
+import {ConcertService} from "../concert.service";
 
 @Component({
   selector: 'app-index-page',
@@ -10,7 +12,8 @@ import { NguCarouselConfig, NguCarousel } from '@ngu/carousel';
 })
 export class IndexPageComponent implements OnInit {
 
-  concerts = CONCERTS;
+  lastConcerts: Concert[];
+  mostViewConcerts: Concert[];
 
   name = 'Angular';
   slideNo = 0;
@@ -28,8 +31,18 @@ export class IndexPageComponent implements OnInit {
   }
   carouselItems = CONCERTS;
  
-  constructor(private cdr: ChangeDetectorRef) {}
-  ngOnInit(){  }
+  constructor(private cdr: ChangeDetectorRef, private concertService:ConcertService) {}
+  ngOnInit(){
+    this.concertService.getLastConcerts().subscribe(result =>{
+        this.lastConcerts = result && result['data'] ? result['data'] : [];
+        console.log(this.lastConcerts)
+    });
+
+    this.concertService.getMostViewConcerts().subscribe(result =>{
+      this.mostViewConcerts = result && result['data'] ? result['data'] : [];
+      console.log(this.mostViewConcerts)
+    });
+  }
  
   ngAfterViewInit() {
     this.cdr.detectChanges();

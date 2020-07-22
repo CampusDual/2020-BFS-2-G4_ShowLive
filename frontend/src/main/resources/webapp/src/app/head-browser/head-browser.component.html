@@ -24,7 +24,7 @@
         </div>
         <div fxLayout="row" layout-align="centersad center">
             <mat-form-field layout-padding>
-                <input matInput type="text" label="Busqueda" required="no" id="name" [(ngModel)]="search.name">
+                <input matInput type="text" placeholder="Nombre concierto" label="Busqueda" id="name" [(ngModel)]="search.name">
             </mat-form-field>
 
             <button mat-icon-button type="submit" (click)="searchSubmit()"><mat-icon>search</mat-icon></button>
