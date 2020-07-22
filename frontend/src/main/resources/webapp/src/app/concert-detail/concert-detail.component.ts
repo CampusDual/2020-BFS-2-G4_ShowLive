@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Concert } from '../concert';
+import { Component, OnInit } from '@angular/core';
+import { Concert } from 'app/concert';
+import { ActivatedRoute } from '@angular/router';
+import { ConcertService } from 'app/concert.service';
 
 @Component({
   selector: 'app-concert-detail',
@@ -8,11 +10,16 @@ import { Concert } from '../concert';
 })
 export class ConcertDetailComponent implements OnInit {
 
-  @Input() concert: Concert;
+  concerts:Concert;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private concertService: ConcertService) { }
 
-  ngOnInit() {
+  ngOnInit(){
+    this.route.params.subscribe(data => {
+      this.concertService.getConcertsDetail(data).subscribe(result =>{    
+        this.concerts = result && (result['data']) && (result['data'].length>0) ? result['data'][0] : {};
+        console.log(this.concerts);
+      });
+    });
   }
-
 }

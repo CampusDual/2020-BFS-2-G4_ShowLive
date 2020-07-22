@@ -1,7 +1,6 @@
 .concert-detail {
     width: 80%;
-    margin: 5%;
-    border: 1px solid #3c3c3a;
+    margin: 0 auto;
 }
 
 .concert-info {
@@ -13,6 +12,7 @@
 .concert-detail img {
     width: 40%;
     margin: 2.5%;
+    box-shadow: 6px 6px 38px -4px lightgray;
 }
 
 @supports (object-fit: cover) {
@@ -36,13 +36,19 @@
     margin-bottom: 0px;
 }
 
-.display-4{
+.display-4 {
     font-size: 2em;
     margin-bottom: 2%;
 }
 
-.concert-detail button{
+.display-3 {
+    position: relative;
+    left: -4px;
+}
+
+.concert-detail button {
     width: 40%;
+    box-shadow: 6px 6px 38px -4px lightgray;
 }
 
 i {

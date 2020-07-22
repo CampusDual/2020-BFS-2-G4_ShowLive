@@ -10,9 +10,9 @@ export class ConcertMiniCardComponent implements OnInit {
 
   @Input() concert: Concert;
 
+
   constructor() { }
 
   ngOnInit() {
   }
-
 }

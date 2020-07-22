@@ -1,30 +1,47 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { Concert } from './concert';
-import { Config } from 'ontimize-web-ngx';
 
-@Injectable({providedIn:'root'})
-export class ConcertService{
 
-    private concertsURL:string;
+@Injectable({ providedIn: 'root' })
+export class ConcertService {
+    private concertsURL: string;
 
-    constructor(private http:HttpClient){
-        this.concertsURL =  'http://localhost:33333/concerts/concertSearch';
+    constructor(private http: HttpClient) {
+        this.concertsURL = 'http://localhost:33333/concerts/concertSearch';
     }
-    getConcerts(parameters){
-        const httpOptions = {headers:new HttpHeaders({'Access-Control-Allow-Origin': '*','Content-Type': 'application/json;charset=UTF-8'})};
+
+    getConcerts(parameters) {
+        const httpOptions = { headers: new HttpHeaders({ 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json;charset=UTF-8' }) };
+        console.log(parameters.name)
         const body = {
             "filter": {
                 "CONCERT_NAME": parameters.name,
             },
             "columns": [
-                "LOCATION_NAME", "DATE", "DESCRIPTION", "CONCERT_NAME","CONCERT_ID","GENRE_NAME"
+                "LOCATION_NAME", "DATE", "DESCRIPTION", "CONCERT_NAME", "CONCERT_ID", "GENRE_NAME"
             ]
         };
-        if(parameters.city != '-') body.filter["PROVINCE"] = parameters.city;
-        if(parameters.genre != '-') body.filter["GENRE_NAME"] = parameters.genre;
-        return this.http.post<Concert[]>(this.concertsURL,JSON.stringify(body),httpOptions);
+        if (parameters.startDate != 0) body.filter["STARTDATE"] = parameters.startDate;
+        if (parameters.endDate != 0) body.filter["ENDDATE"] = parameters.endDate;
+        if (parameters.city != '-') body.filter["PROVINCE"] = parameters.city;
+        if (parameters.genre != '-') body.filter["GENRE_NAME"] = parameters.genre;
+        if (parameters.concert_id) body.filter["CONCERT_ID"] = parameters.concert_id;
+        return this.http.post<Concert[]>(this.concertsURL, JSON.stringify(body), httpOptions);
+    }
+
+
+    getConcertsDetail(parameters) {
+        const httpOptions = { headers: new HttpHeaders({ 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json;charset=UTF-8' }) };
+        const body = {
+            "filter": {
+                "CONCERT_ID": parameters.concert_id
+            },
+            "columns": [
+                "LOCATION_NAME", "DATE", "DESCRIPTION", "CONCERT_NAME", "CONCERT_ID", "ARTIST_NAME", "TICKETEA_LINK"
+            ]
+        };
+        return this.http.post<Concert[]>('http://localhost:33333/concerts/concert/search', JSON.stringify(body), httpOptions);
     }
     getLastConcerts(){
         const httpOptions = {headers:new HttpHeaders({'Access-Control-Allow-Origin': '*','Content-Type': 'application/json;charset=UTF-8'})};

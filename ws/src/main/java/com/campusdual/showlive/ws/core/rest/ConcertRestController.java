@@ -37,11 +37,8 @@ public class ConcertRestController extends ORestController<IConcertService> {
 	
 	@RequestMapping(value = "/currentConcerts", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public EntityResult currentConcertsSearch(@RequestBody Map<String, Object> req) {
-//	 try {
+
 		final Map<String, Object> keysValues = new HashMap<String, Object>();
-//		for (final Entry<String, Object> filter : ((LinkedHashMap<String, Object>) req.get("filter")).entrySet()) {
-//			keysValues.put(filter.getKey(), filter.getValue());
-//		}
 
 		((LinkedHashMap<String, Object>) req.get("filter")).entrySet().stream()
 				.forEach(filter -> keysValues.put(filter.getKey(), filter.getValue()));
@@ -50,20 +47,32 @@ public class ConcertRestController extends ORestController<IConcertService> {
 		Map<String, Object> key = new HashMap<String, Object>();
 
 		return concertService.concertQuery(keysValues, columns);
-//		  } catch (Exception e) {
-//		   e.printStackTrace();
-//		   log.error(e.g)
-//		   EntityResult res = new EntityResult();
-//		   res.setCode(EntityResult.OPERATION_WRONG);
-//		   return res;
+
 	}
+	
+//	@RequestMapping(value = "/currentComments/search", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+//	public EntityResult currentComments(@RequestBody Map<String, Object> req) {
+//		
+//		final Map<String, Object> keysValues = new HashMap<String, Object>();
+//
+//		((LinkedHashMap<String, Object>) req.get("filter")).entrySet().stream()
+//				.forEach(filter -> keysValues.put(filter.getKey(), filter.getValue()));
+//
+//		List<String> columns = (List<String>) req.get("columns");
+//		Map<String, Object> key = new HashMap<String, Object>();
+//
+//		return concertService.commentsQuery(keysValues, columns);
+//
+//	}
 	
 	@RequestMapping(value = "/concertSearch", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public EntityResult concertSearch(@RequestBody Map<String, Object> req) {
-		final Map<String, Object> keysValues = new HashMap<String, Object>();
-
-		((LinkedHashMap<String, Object>) req.get("filter")).entrySet().stream()
-		.forEach(filter -> keysValues.put(filter.getKey(), filter.getValue()));
+		Map<String, Object> keysValues = (Map<String, Object>) req.get("filter");
+		
+		if (keysValues.containsKey("CONCERT_ID")) {
+			final int concertId = Integer.parseInt((String)keysValues.get("CONCERT_ID"));
+			keysValues.put("CONCERT_ID", concertId);
+		}
 
 		List<String> columns = (List<String>) req.get("columns");
 		Map<String, Object> key = new HashMap<String, Object>();
