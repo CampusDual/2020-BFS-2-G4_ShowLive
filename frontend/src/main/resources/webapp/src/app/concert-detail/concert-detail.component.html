@@ -1,21 +1,23 @@
 <div class="concert-detail">
-  <div class="concert-info" *ngIf="concerts">
-    <img src="../../assets/images/concerts/{{concerts.CONCERT_ID}}.jpg">
-    <div class="concert-details">
-      <h2 class="display-3">{{ concerts.CONCERT_NAME }}</h2>
-      <h4 class="display-4">{{ concerts.ARTIST_NAME }}</h4>
-      <h4 class="display-4">{{ concerts.DATE | date }}</h4>
+    <div class="concert-info" *ngIf="concerts">
+        <img src="../../assets/images/concerts/{{concerts.CONCERT_ID}}.jpg">
+        <div class="concert-details">
+            <h2 class="display-3">{{ concerts.CONCERT_NAME }}</h2>
+            <a [routerLink]="['/artistDetail', concerts.ARTIST_ID]">
+                <h4 class="display-4">{{ concerts.ARTIST_NAME }}</h4>
+            </a>
+            <h4 class="display-4">{{ concerts.DATE | date }}</h4>
 
-      <i class="fa fa-map-marker" aria-hidden="true"> {{concerts.LOCATION_NAME}}</i>
-      <p>{{ concerts.DESCRIPTION }}</p>
-      <a href="{{concerts.TICKETEA_LINK}}" target="_blank"><button class="tickets-button btn btn-warning">Comprar
+            <i class="fa fa-map-marker" aria-hidden="true"> {{concerts.LOCATION_NAME}}</i>
+            <p>{{ concerts.DESCRIPTION }}</p>
+            <a href="{{concerts.TICKETEA_LINK}}" [class.request-card-hidden]="hideElement()" target="_blank"><button class="tickets-button btn btn-warning">Comprar
           entradas</button></a>
+        </div>
     </div>
-  </div>
 
-  <div class="comments">
-    <h1>Comentarios</h1>
-    <hr>
-    <app-comments-section></app-comments-section>
-  </div>
+    <div class="comments">
+        <h1>Comentarios</h1>
+        <hr>
+        <app-comments-section></app-comments-section>
+    </div>
 </div>

@@ -12,7 +12,7 @@ import com.ontimize.jee.server.dao.jdbc.OntimizeJdbcDaoSupport;
 public class ArtistDao extends OntimizeJdbcDaoSupport{
 
 	public static final String ATTR_ARTIST_ID = "ARTIST_ID";
-	public static final String ATTR_NAME = "NAME";
+	public static final String ATTR_ARTIST_NAME = "ARTIST_NAME";
 	public static final String ATTR_TWITTER_LINK = "TWITTER_LINK";
 	public static final String ATTR_INSTAGRAM_LINK = "INSTAGRAM_LINK";
 	public static final String ATTR_TWITCH_LINK = "TWITCH_LINK";

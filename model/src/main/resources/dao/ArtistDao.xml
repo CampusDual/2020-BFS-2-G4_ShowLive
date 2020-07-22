@@ -12,4 +12,23 @@
   <Column>ARTIST_ID</Column>
  </UpdateKeys>
  <GeneratedKey>ARTIST_ID</GeneratedKey>
+ <Queries>
+ <Query id="artist_search">
+ 		<AmbiguousColumns>
+ 			<AmbiguousColumn name="genre_id" prefix="g"/>
+ 			<AmbiguousColumn name="artist_id" prefix="a"/>
+ 		</AmbiguousColumns>
+ 		<Sentence>
+ 			<![CDATA[
+ 				SELECT
+ 					#COLUMNS#
+ 				FROM
+ 					${mainschema}.ARTIST a
+ 				INNER JOIN ${mainschema}.ARTIST_GENRE ag ON ag.artist_id = a.artist_id
+ 				INNER JOIN ${mainschema}.GENRE g on ag.genre_id = g.genre_id	
+ 				#WHERE#
+ 			]]>
+ 		</Sentence>
+ 	</Query>
+ </Queries>
 </JdbcEntitySetup>

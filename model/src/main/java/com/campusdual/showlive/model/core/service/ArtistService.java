@@ -20,10 +20,16 @@ public class ArtistService implements IArtistService{
 	 @Autowired private DefaultOntimizeDaoHelper daoHelper;
 	 
 	 @Override
-	 public EntityResult artistQuery(Map<String, Object> keyMap, List<String> attrList)
-	   throws OntimizeJEERuntimeException {
-	  return this.daoHelper.query(this.artistDao, keyMap, attrList);
-	 }
+		public EntityResult artistQuery(Map<String, Object> keyMap, List<String> attrList)
+				throws OntimizeJEERuntimeException {
+			
+			if (keyMap.containsKey("ARTIST_ID")) {
+				final int artistId = Integer.parseInt((String)keyMap.get("ARTIST_ID"));
+				keyMap.put("ARTIST_ID", artistId);
+			}
+			
+			return this.daoHelper.query(this.artistDao, keyMap, attrList, "artist_search");
+		}
 
 	 @Override
 	 public EntityResult artistInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException {

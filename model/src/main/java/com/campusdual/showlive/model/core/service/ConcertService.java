@@ -39,6 +39,10 @@ public class ConcertService implements IConcertService {
 			final int concertId = Integer.parseInt((String)keyMap.get("CONCERT_ID"));
 			keyMap.put("CONCERT_ID", concertId);
 		}
+		if (keyMap.containsKey("ARTIST_ID")) {
+			final int artistId = Integer.parseInt((String)keyMap.get("ARTIST_ID"));
+			keyMap.put("ARTIST_ID", artistId);
+		}
 		
 		return this.daoHelper.query(this.concertDao, keyMap, attrList, "concert_search");
 	}

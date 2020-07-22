@@ -18,8 +18,13 @@ export class ConcertDetailComponent implements OnInit {
     this.route.params.subscribe(data => {
       this.concertService.getConcertsDetail(data).subscribe(result =>{    
         this.concerts = result && (result['data']) && (result['data'].length>0) ? result['data'][0] : {};
-        console.log(this.concerts);
+        console.log(this.concerts['TICKETEA_LINK']);
       });
     });
   }
+
+  hideElement():boolean{
+    if (this.concerts['TICKETEA_LINK']==null)
+        return true;
+}
 }

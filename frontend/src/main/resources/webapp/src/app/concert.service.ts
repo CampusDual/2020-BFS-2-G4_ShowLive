@@ -37,7 +37,20 @@ export class ConcertService {
                 "CONCERT_ID": parameters.concert_id
             },
             "columns": [
-                "LOCATION_NAME", "DATE", "DESCRIPTION", "CONCERT_NAME", "CONCERT_ID", "ARTIST_NAME", "TICKETEA_LINK"
+                "LOCATION_NAME", "DATE", "DESCRIPTION", "CONCERT_NAME", "CONCERT_ID", "ARTIST_NAME", "TICKETEA_LINK","ARTIST_ID"
+            ]
+        };
+        return this.http.post<Concert[]>('http://localhost:33333/concerts/concert/search', JSON.stringify(body), httpOptions);
+    }
+
+    getConcertsOfArtist(parameters) {
+        const httpOptions = { headers: new HttpHeaders({ 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json;charset=UTF-8' }) };
+        const body = {
+            "filter": {
+                "ARTIST_ID": parameters.artist_id
+            },
+            "columns": [
+                "LOCATION_NAME", "DATE", "DESCRIPTION", "CONCERT_NAME", "CONCERT_ID", "ARTIST_NAME", "TICKETEA_LINK","ARTIST_ID"
             ]
         };
         return this.http.post<Concert[]>('http://localhost:33333/concerts/concert/search', JSON.stringify(body), httpOptions);
