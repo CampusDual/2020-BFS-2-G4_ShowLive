@@ -2,8 +2,8 @@
     <!--<h1>
         <mat-icon aria-hidden="false" aria-label="music note icon">music_note</mat-icon> ShowLive
     </h1>-->
-    <a routerLink="/index"><img src="../../assets/images/ShowLive_x3.png"></a>
-    <o-form editable-detail="no" show-header="no" layout-direction="column" layout-align="center center">
+    <a routerLink="/index" (click)="someForm.reset()"><img src="../../assets/images/ShowLive_x3.png"></a>
+    <o-form #someForm editable-detail="no" show-header="no" layout-direction="column" layout-align="center center">
         <div fxLayout="row" layout-align="center center">
             <!--o-daterange-input layout-padding attr="daterange2" label="{{ 'Fechas' | oTranslate }}" #startDate (input)="search.startDate = date.value.value" read-only="no" required="no" [data]="getValue()" clear-button="yes" format="LL" separator=" to ">
             </o-daterange-input>{{startDate.value.value}}-->

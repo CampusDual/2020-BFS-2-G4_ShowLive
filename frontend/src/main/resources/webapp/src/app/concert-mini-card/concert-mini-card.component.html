@@ -8,8 +8,7 @@
         <mat-card-content class="location">{{ concert.LOCATION_NAME }}</mat-card-content>
 
         <mat-card-actions>
-            <button [routerLink]="['/concertDetail', concert.CONCERT_ID]" mat-button>Más información</button>
+            <a target="_top"><button [routerLink]="['/concertDetail', concert.CONCERT_ID]" target="_top" mat-button>Más información</button></a>
         </mat-card-actions>
     </div>
 </mat-card>
-

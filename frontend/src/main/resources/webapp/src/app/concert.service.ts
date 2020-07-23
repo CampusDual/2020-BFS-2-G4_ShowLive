@@ -61,7 +61,7 @@ export class ConcertService {
         const body = {
             "filter": {},
             "columns": [
-                "DATE", "DESCRIPTION", "CONCERT_NAME","CONCERT_ID","GENRE_NAME"
+                "DATE", "DESCRIPTION", "CONCERT_NAME","CONCERT_ID","GENRE_NAME","ARTIST_NAME","LOCATION_NAME"
             ]
         };
         return this.http.post<Concert[]>('http://localhost:33333/concerts/lastConcert',JSON.stringify(body),httpOptions);
@@ -72,7 +72,7 @@ export class ConcertService {
         const body = {
             "filter": {},
             "columns": [
-                "DATE", "DESCRIPTION", "CONCERT_NAME","CONCERT_ID","GENRE_NAME"
+                "DATE", "DESCRIPTION", "CONCERT_NAME","CONCERT_ID","GENRE_NAME","ARTIST_NAME","LOCATION_NAME"
             ]
         };
         return this.http.post<Concert[]>('http://localhost:33333/concerts/mostViewConcert',JSON.stringify(body),httpOptions);
