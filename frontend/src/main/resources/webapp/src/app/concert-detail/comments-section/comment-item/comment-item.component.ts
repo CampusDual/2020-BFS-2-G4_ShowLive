@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Comment } from 'app/concertComment';
+import { UserComment } from 'app/concertComment';
 
 @Component({
   selector: 'app-comment-item',
@@ -8,7 +8,7 @@ import { Comment } from 'app/concertComment';
 })
 export class CommentItemComponent implements OnInit {
 
-  @Input() comment: Comment;
+  @Input() comment: UserComment;
 
   constructor() { }
 

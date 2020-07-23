@@ -11,10 +11,10 @@ import com.ontimize.jee.server.dao.jdbc.OntimizeJdbcDaoSupport;
 @ConfigurationFile(configurationFile = "dao/CommentDao.xml", configurationFilePlaceholder = "dao/placeholders.properties")
 public class CommentDao extends OntimizeJdbcDaoSupport {
 
- public static final String ATTR_COMMENTS_ID = "COMMENTS_ID";
- public static final String ATTR_CONCERT_ID = "CONCERT_ID";
- public static final String ATTR_NAME_COMMENT = "NAME_COMMENT";
- public static final String ATTR_DATE_COMMENT = "DATE_COMMENTO";
- public static final String ATTR_CONTENT = "CONTENT";
+ public static final String ATTR_COMMENTS_ID = "comments_id";
+ public static final String ATTR_CONCERT_ID = "concert_id";
+ public static final String ATTR_NAME_COMMENT = "name_comment";
+ public static final String ATTR_DATE_COMMENT = "date_comment";
+ public static final String ATTR_CONTENT = "content";
  
 }

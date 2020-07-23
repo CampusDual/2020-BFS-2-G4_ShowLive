@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
@@ -35,20 +36,21 @@ public class CommentService implements ICommentService {
 	@Override
 	public EntityResult commentQuery(Map<String, Object> keyMap, List<String> attrList)
 			throws OntimizeJEERuntimeException {
-		
+
 		if (keyMap.containsKey("CONCERT_ID")) {
-			final int concertId = Integer.parseInt((String)keyMap.get("CONCERT_ID"));
+			final int concertId = Integer.parseInt((String) keyMap.get("CONCERT_ID"));
 			keyMap.put("CONCERT_ID", concertId);
 		}
-		
+
 		return this.daoHelper.query(this.commentDao, keyMap, attrList, "concert_comments");
 	}
 
-	
-	
 	@Override
 	public EntityResult commentInsert(Map<String, Object> attrMap) throws OntimizeJEERuntimeException {
-		return this.daoHelper.insert(this.commentDao, attrMap);
+		Map<String, Object> attrMapLowerCase = attrMap.entrySet().stream()
+				.collect(Collectors.toMap(entry -> entry.getKey().toLowerCase(), entry -> entry.getValue()));
+		attrMapLowerCase.put(CommentDao.ATTR_DATE_COMMENT, new Date());
+		return this.daoHelper.insert(this.commentDao, attrMapLowerCase);
 	}
 
 	@Override

@@ -6,12 +6,12 @@
  catalog="" schema="${mainschema}" table="comments"
  datasource="mainDataSource" sqlhandler="dbSQLStatementHandler">
  <DeleteKeys>
-  <Column>COMMENTS_ID</Column>
+  <Column>comments_id</Column>
  </DeleteKeys>
  <UpdateKeys>
-  <Column>COMMENTS_ID</Column>
+  <Column>comments_id</Column>
  </UpdateKeys>
- <GeneratedKey>COMMENTS_ID</GeneratedKey>
+ <GeneratedKey>comments_id</GeneratedKey>
  <Queries>
  
  </Queries>

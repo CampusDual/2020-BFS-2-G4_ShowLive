@@ -10,7 +10,7 @@
             <input matInput type="date" label="Fecha inicio" required="no" id="startDate" [(ngModel)]="search.startDate">
             <input matInput type="date" label="Fecha fin" required="no" id="endDate" [(ngModel)]="search.endDate">
             <mat-form-field layout-padding>
-                <mat-select placeholder="Ciudad" id="city" [(ngModel)]="search.city">
+                <mat-select placeholder="Provincia" id="city" [(ngModel)]="search.city">
                     <mat-option value="-">Cualquiera</mat-option>
                     <mat-option *ngFor="let ciudad of arrayCiudades" value="{{ciudad.value}}">{{ciudad.value}}</mat-option>
                 </mat-select>

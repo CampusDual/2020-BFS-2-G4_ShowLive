@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Comment } from './concertComment';
-import { PARAMETERS } from '@angular/core/src/util/decorators';
+import { UserComment } from 'app/concertComment';
 
 
 @Injectable({ providedIn: 'root' })
@@ -22,7 +21,7 @@ export class CommentService {
                 "NAME_COMMENT", "DATE_COMMENT", "CONTENT"
             ]
         };
-        return this.http.post<Comment[]>('http://localhost:33333/comments/currentConcerts', JSON.stringify(body), httpOptions);
+        return this.http.post<UserComment[]>('http://localhost:33333/comments/currentConcerts', JSON.stringify(body), httpOptions);
     }
 
     insertComments(parameters) {
@@ -30,8 +29,8 @@ export class CommentService {
         //console.log(parameters)
         const body = {
             "data": {
-                "CONCERT_ID": parameters.concert_id,
-                "NAME_COMMENT": "Hello",
+                "CONCERT_ID": parameters.CONCERT_ID,
+                "NAME_COMMENT": parameters.NAME_COMMENT,
                 "DATE_COMMENT": parameters.DATE_COMMENT,
                 "CONTENT": parameters.CONTENT
             },
@@ -43,7 +42,7 @@ export class CommentService {
                 "date_comment": 91
             }
         }
-        return this.http.post<Comment[]>('http://localhost:33333/comments/currentConcerts', JSON.stringify(body), httpOptions);
+        return this.http.post<UserComment[]>('http://localhost:33333/comments/comment', JSON.stringify(body), httpOptions);
     }
 
 
