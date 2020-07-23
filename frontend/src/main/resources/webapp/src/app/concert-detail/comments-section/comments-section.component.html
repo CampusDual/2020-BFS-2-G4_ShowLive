@@ -1,18 +1,38 @@
 <div class="coments-form">
-  <o-form service="CommentService" entity="commentInsert" keys="COMMENT_ID" columns="COMMENT_ID;NAME_COMMENT;DATE_COMMENT;CONTENT" editable-detail="no" show-header="no"
-    layout-direction="column">
-    <o-text-input attr="NAME_COMMENT" class="input-name" label="Nombre" [data]="getValue('NAME_COMMENT')" read-only="no"
-      required="yes">
-    </o-text-input>
-    <span class="comentar">
-      <o-textarea-input attr="CONTENT" class="textarea-comment" label="Comentario" [data]="getValue('CONTENT')" read-only="no"
-        rows="5"></o-textarea-input>
-      <o-button attr="raised" class="comment-button" type="RAISED" label="Comentar" layout-padding
-        (click)="commentSubmit()"></o-button>
-    </span>
-  </o-form>
-</div>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" formControlName="NAME_COMMENT" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.NAME_COMMENT.errors }" />
+      <div *ngIf="submitted && f.NAME_COMMENT.errors" class="invalid-feedback">
+        <div *ngIf="f.NAME_COMMENT.errors.required">Campo requerido</div>
+      </div>
+    </div>
 
+    <div class="form-group" hidden>
+      <label>Fecha</label>
+      <input type="date" formControlName="DATE_COMMENT" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.DATE_COMMENT.errors }" />
+      <div *ngIf="submitted && f.DATE_COMMENT.errors" class="invalid-feedback">
+        <div *ngIf="f.DATE_COMMENT.errors.required">Campo requerido</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Comentario</label>
+      <textarea rows="5" formControlName="CONTENT" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.CONTENT.errors }"></textarea>
+      <div *ngIf="submitted && f.CONTENT.errors" class="invalid-feedback">
+        <div *ngIf="f.CONTENT.errors.required">Campo requerido</div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <button [disabled]="loading" class="btn btn-primary">Comentar</button>
+    </div>
+  </form>
+
+</div>
 
 <div class="comments-list">
   <app-comment-item *ngFor="let comment of comments" [comment]="comment"></app-comment-item>
