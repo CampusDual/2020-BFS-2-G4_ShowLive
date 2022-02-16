@@ -17,7 +17,7 @@
 		<ontimize.boot.version>2.0.0</ontimize.boot.version>
 		<ontimize.jee.version>2.0.0</ontimize.jee.version>
 		<basicproject.version>0.0.1</basicproject.version>
-		<postgresql.version>42.2.0</postgresql.version>
+		<postgresql.version>42.3.3</postgresql.version>
 	</properties>
 
 	<dependencyManagement>
